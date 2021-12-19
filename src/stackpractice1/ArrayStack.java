@@ -1,4 +1,4 @@
-package stackpractice;
+package stackpractice1;
 /**
  * = Stack =
  * 
