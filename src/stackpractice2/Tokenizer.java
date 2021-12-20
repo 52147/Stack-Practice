@@ -115,7 +115,7 @@ package stackpractice2;
  *   
  *   - The 2 component are represented as seperate classes.
  *   
- *   The Tokenizer class:
+ *The Tokenizer class:
  *   
  *   - The Tokenizer class provides a constructor that requires a Reader and then provides a set of accessors that can be used to 
  *     
@@ -125,14 +125,29 @@ package stackpractice2;
  *     
  *   - The Tokenizer class maintains most of this information in private data members.
  *   
- *   - It is a reference to a PushbackReader object and is initialized at construction.
+ *   - Tokenizer class is a reference to a PushbackReader object and is initialized at construction.
  *   - Because of the I/O hierarchy, it may be constructed with any Reader object.
  *   - The current character being scanned is stored in ch, and the current line number is stored in currentLine.
  *   - Finally, an integer that counts the number of errors.
  *   - The constructor initializes the error count to 0 and the current line number to 1 and sets the PushbackReader reference.
+ *  
+ *   The Tokenizer class methods:
+ *   
+ *   - are concerned with keeping track of the current line and
+ *     attempting to differentiate symbols that represent opening and closing tokens
+ *     from those that are inside comments, character constants, and string constants.
+ *     -> this process of recognizing tokens in a stream of symbols is called lexical analysis
  *   
  *   
- *   The Balance class:
+ *   - nextChar and putBackChar
+ *     - The nextChar method reads the next character from in, assigns it to ch,
+ *       and updates currentLine if a newline is encountered.
+ *     - it returns false only if the end of the file has been reached,
+ *     
+ *     - The complementary procedure putBackChar puts the current character, ch, back onto the input stream, 
+ *       and decrements currentLine if the character is a newline.
+ *   
+ *The Balance class:
  *   
  *   - The Balance class also provides a similar constructor, but its only publicly visible routine is checkBalance. 
  *   - Everything else is a supporting routine or a class data member.
@@ -147,3 +162,64 @@ package stackpractice2;
  *        
  * 
  */
+import java.io.Reader;
+import java.io.PushbackReader;  // A character-stream reader that allows characters to be pushed back into the stream.
+import java.io.IOException;
+
+// The Tokenizer class used to retrieve tokens from an input stream.
+
+// Tokenizer class.
+//
+// Construction: with a Reader object
+// Public Operation:
+// char getNextOpenClose()   --> Get next opening/closing symbol
+// int getLineNumber()       --> Return current line number
+// int getErrorCount()       --> Return number of parsing errors
+// String getNextID()        --> Get next Java identifier
+//
+// Errors:
+// Error checking on comments and quotes is performed
+public class Tokenizer{
+	
+	private PushbackReader in; // the input stream
+	private char ch; // current character
+	private int currentLine; // current line
+	private int errors; // number of errors seen
+	
+	
+	public Tokenizer(Reader inStream) {
+		errors = 0;
+		ch = '0';
+		currentLine = 1;
+		in = new PushbackReader(inStream);
+	}
+	
+	public static final int SLASH_SLASH = 0;
+	public static final int SLASH_STAR = 1;
+	
+	public int getLineNumber() {
+		return currentLine;
+	}
+	public int getErroCount() {
+		return errors;
+	}
+	public char getNextOpenClose() {}
+	
+	public char getNextID() {}
+	
+	private boolean nextChar() {}
+	
+	private void putBackChar() {}
+	
+	private void skipComment(int start) {}
+	
+	private void skipQuote(char quoteType) {}
+	
+	private void processSlash() {}
+	
+	private static final boolean isIdChar(char ch) {}
+	
+	private String getRemainingString() {}
+	
+	
+}

@@ -53,6 +53,7 @@ package stackpractice1;
  * - if there is no array doubling , every operation takes constant time.
  * - A push that involves array doubling will take O(N) time.
  * - If this were a frequent occurrence, we would need to worry.
+ * 
  * - However, it is infrequent because an array doubling that involves N elements must be preceded by at least
  *   N/2 pushes that do not involve an array doubling.
  * - Consequently, we can charge the O(N) cost of the doubling over these N/2 easy pushes,
@@ -125,7 +126,7 @@ public class ArrayStack<AnyType> implements Stack<AnyType> {
 	 * 
 	 */
 	public boolean makeEmpty() {
-		topOfStack = -1;
+		return topOfStack == -1;
 	}
 	
 	/**
@@ -146,10 +147,10 @@ public class ArrayStack<AnyType> implements Stack<AnyType> {
 	 * @throws UnderflowException if the stack is empty.
 	 */
 	public void pop() {
-		if (isEmpty()) {
+		if (isEmpty()) 
 			throw new UnderflowException("ArrayStack pop.");
 		topOfStack--;	
-		}
+		
 	}
 	
 	/**
@@ -158,10 +159,11 @@ public class ArrayStack<AnyType> implements Stack<AnyType> {
 	 * @throws UnderflowException if the stack is empty.
 	 */
 	public AnyType topAndPop() {
-		if(isEmpty()) {
+		if(isEmpty()) 
 			throw new UnderflowException("ArryStack topAnPop");
-			return theArray[topOfStack--];
-		}
+		return theArray[topOfStack--];
+		
+		
 	}
 	
 	/**

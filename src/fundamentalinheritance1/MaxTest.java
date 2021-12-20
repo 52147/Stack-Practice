@@ -4,11 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
-/**
- * 
- * @author debra
- *
- */
+
 
 // Wrapping an InputStream inside an InputStreamReader inside a BufferedReader
 // works for any InputStream, including System.in or sockets.
@@ -17,8 +13,11 @@ public class MaxTest {
 
 	public static void main(String[] args) {
 		
-		BufferedReader in = new BufferedReader(new InputStreamReader(System.in));
-		
+		BufferedReader in = new BufferedReader(new InputStreamReader(System.in)); 
+		// Use BufferedReader to read text from a character input stream, use read(), readLine()
+		// wrap the BufferedReader around the Reader
+		// such as FileReaders or InputStreamReaders
+		// will buffering the input from the specific file
 		System.out.println("Enter 2 ints on one line: ");
 		
 		try {
