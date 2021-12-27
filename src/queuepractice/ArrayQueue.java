@@ -138,10 +138,11 @@ import stackpractice1.UnderflowException;
  * - The skeleton for the ArrayQueue class:
  *   
  *   - The ArrayQueue class has 4 data members:
- *     1. a dynamically expanding array,
- *     2. the number of items currently in the queue,
- *     3. the array index of the front item,
- *     4. the array index of the back item.
+ *   
+ *      1. a dynamically expanding array,
+ *      2. the number of items currently in the queue,
+ *      3. the array index of the front item,
+ *      4. the array index of the back item.
  *     
  * - Internal(private) method:
  * 
@@ -178,15 +179,18 @@ import stackpractice1.UnderflowException;
  *   - doubleQueue()
  *    - begin by resizing the array.
  *    - We must move items starting at front, rather than 0.
- *   
- * 
- *     
- *  
- * 
- *   
+ *    - The doubleQueue steps through the old array and copies each item to the new part of the array.
+ *    - Then we reset back.
  *    
- *       
- *        
+ *    
+ * - The queue routines clearly are constant-time operations, so the cost of array doubling
+ *   can be amortized over the sequence of enqueue operations, as for the stack.
+ *   
+ * - The circular array implementation of the queue can easily be done incorrectly
+ *   when attempts to shorten the code are made.
+ *   - For instance, 
+ *     if you attempt to avoid using the size member by using front and back to infer the size,
+ *     the array must be resized when the number of items in the queue is 1 less than the array's size.      
  *                      
  *        
  */
@@ -282,7 +286,7 @@ public class ArrayQueue<AnyType> {
 	 * @return x+1, or 0 if x is at the end of theArray.
 	 */
 	private int increment (int x) {
-		if(++x == theArray.length)
+		if(++x == theArray.length) // if x+1 is equal to array's length, return 0, else returns x+1
 			x = 0;
 		return x;
 		
