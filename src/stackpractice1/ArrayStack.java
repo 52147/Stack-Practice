@@ -125,8 +125,8 @@ public class ArrayStack<AnyType> implements Stack<AnyType> {
 	 *  Make the stack logically empty.
 	 * 
 	 */
-	public boolean makeEmpty() {
-		return topOfStack == -1;
+	public void makeEmpty() {
+		 topOfStack = -1;
 	}
 	
 	/**
