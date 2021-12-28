@@ -147,20 +147,7 @@ package stackpractice2;
  *     - The complementary procedure putBackChar puts the current character, ch, back onto the input stream, 
  *       and decrements currentLine if the character is a newline.
  *   
- *The Balance class:
- *   
- *   - The Balance class also provides a similar constructor, but its only publicly visible routine is checkBalance. 
- *   - Everything else is a supporting routine or a class data member.
- *   
- *    
- *   
- *   
- *   
  *     
- *     
- *     
- *        
- * 
  */
 import java.io.Reader;
 import java.io.PushbackReader;  // A character-stream reader that allows characters to be pushed back into the stream.
