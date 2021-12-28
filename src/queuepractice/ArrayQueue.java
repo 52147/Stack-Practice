@@ -125,7 +125,7 @@ import stackpractice1.UnderflowException;
  *       that is, when either back or front reaches the end of the array,
  *       we reset it to the beginning.
  *       
- *       circular array implementation:
+ *       circular array implementation: (leetcode 622 design circular queue)
  *       
  *       - This operation implementing a queue is called a circular array implementation.
  *       - We need to double the array only when the number of elements in the queue

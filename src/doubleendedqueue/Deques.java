@@ -5,8 +5,6 @@ import fundamentalinheritance1.NoSuchElementException;
 /**
  * = double-ended queues(deque) = 
  * 
- *   (leetcode 622 design circular queue)
- * 
  * - The double-ended queues is like a queue, except that access is allowed at both ends.
  * - The key property of a deque is that entries can be quickly inserted and removed at both ends.
  * - This differs from a stack(which uses only one end)
