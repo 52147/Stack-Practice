@@ -3,11 +3,11 @@ package queuepractice;
 // Queue interface:
 //
 // Public operations:
-// void enqueue(x)  ---->Insert x
+// void enqueue(x)     ----> Insert x
 // AnyType getFront()  ----> Return least recently inserted item
-// AnyType dequeue() ----> Return and remove least recent item
-// boolean isEmpty() -----> Return true if empty; else false
-// void makeEmpty() ----> Remove all items
+// AnyType dequeue()   ----> Return and remove least recent item
+// boolean isEmpty()   ----> Return true if empty; else false
+// void makeEmpty()    ----> Remove all items
 // Errors :
 // getFront or dequeue on empty queue
 
